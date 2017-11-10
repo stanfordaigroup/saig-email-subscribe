@@ -3,6 +3,8 @@ const Router = require('koa-router');
 const koaBody = require('koa-body');
 const nodeFetch = require('node-fetch');
 
+const port = process.env.PORT || 8080;
+
 const app = new Koa();
 const router = new Router();
 
@@ -51,4 +53,4 @@ console.log('Now listening for subscription requests... 🚇')
 app.use(router.routes())
    .use(router.allowedMethods());
 
-app.listen(3000);
+app.listen(port);
