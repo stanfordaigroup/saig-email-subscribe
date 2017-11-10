@@ -14,5 +14,8 @@
   },
   "scripts": {
     "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">= 7.6.0"
   }
 }
