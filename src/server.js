@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const Router = require('koa-router');
 const koaBody = require('koa-body');
+const cors = require('koa-cors');
 const nodeFetch = require('node-fetch');
 
 const port = process.env.PORT || 8080;
