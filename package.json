@@ -9,6 +9,7 @@
     "fetch": "^1.1.0",
     "koa": "^2.4.1",
     "koa-body": "^2.5.0",
+    "koa-cors": "^0.0.16",
     "koa-router": "^7.2.1",
     "node-fetch": "^1.7.3"
   },

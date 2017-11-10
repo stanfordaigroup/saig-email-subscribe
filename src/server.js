@@ -50,7 +50,8 @@ router.get('/', async (ctx) => {
 
 console.log('Now listening for subscription requests... 🚇')
 
-app.use(router.routes())
+app.use(cors())
+   .use(router.routes())
    .use(router.allowedMethods());
 
 app.listen(port);
