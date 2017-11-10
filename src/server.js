@@ -19,7 +19,7 @@ function encode(data) {
     .join("&");
 }
 
-function submitSubscription(email) {
+function submitSubscription(fullname, email) {
   nodeFetch('https://mailman.stanford.edu/mailman/subscribe/saig-announce', {
     method: 'POST',
     headers: {
@@ -29,9 +29,9 @@ function submitSubscription(email) {
       'digest': '0',
       'email-button': 'Subscribe',
       'email': email,
-      'fullname': '',
+      'fullname': fullname,
     }),
-  }).then((response) => console.log('subscribed email:', email))
+  }).then((response) => console.log(`subscribed name: ${fullname} email: ${email}`))
     .catch((error) => console.error(error));
 }
 
@@ -39,8 +39,9 @@ router.post('/subscribe', koaBody(),
   (ctx) => {
     const body = JSON.parse(ctx.request.body);
     
-    submitSubscription(body.email);
-    
+    // Subscribe the given person to our mailing list
+    submitSubscription(body.fullname, body.email);
+  
     // => POST body
     ctx.body = JSON.stringify(ctx.request.body);
   }
